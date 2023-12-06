@@ -1,0 +1,33 @@
+spin_manifest_version = 2
+
+[application]
+name = "server"
+version = "0.1.0"
+authors = ["Franxois <franxoois+github@gmail.com>"]
+description = ""
+
+[[trigger.http]]
+route = "/..."
+component = "index"
+
+[component.index]
+source = "index/target/wasm32-wasi/release/index.wasm"
+allowed_outbound_hosts = []
+[component.index.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "index"
+watch = ["src/**/*.rs", "Cargo.toml"]
+
+[[trigger.http]]
+route = "/data"
+component = "data"
+
+[component.data]
+source = "data/target/wasm32-wasi/release/data.wasm"
+allowed_outbound_hosts = []
+key_value_stores = ["default"]
+
+[component.data.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "data"
+watch = ["src/**/*.rs", "Cargo.toml"]

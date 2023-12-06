@@ -74,3 +74,9 @@ Please don't hesitate to reach out to the elves on Fermyon [Discord](https://dis
 Remember there are prizes for each challenge. So it may be you, to whom the elves will deliver a nice award to.
 
 Note: If you submit using Fermyon Cloud, we will contact you for any awards you may win. If you aren't using the Fermyon cloud to host your application, please reach out to the elves on Fermyon [Discord](https://discord.gg/AAFNfS7NGf) to register your submission
+
+
+
+## What I have done
+
+Follow https://developer.fermyon.com/spin/v2/spin-application-structure
