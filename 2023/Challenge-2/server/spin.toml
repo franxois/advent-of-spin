@@ -1,0 +1,18 @@
+spin_manifest_version = 2
+
+[application]
+name = "server-challenge2"
+version = "0.1.0"
+authors = ["Franxois <franxoois+github@gmail.com>"]
+description = ""
+
+[[trigger.http]]
+route = "/..."
+component = "server"
+
+[component.server]
+source = "target/wasm32-wasi/release/server.wasm"
+allowed_outbound_hosts = []
+[component.server.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
