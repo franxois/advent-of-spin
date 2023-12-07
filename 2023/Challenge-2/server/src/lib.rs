@@ -4,20 +4,20 @@ use spin_sdk::http_component;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Input {
-    pub kids: Vec<u8>,
-    pub weight: Vec<u8>,
-    pub capacity: u8,
+    pub kids: Vec<i32>,
+    pub weight: Vec<i32>,
+    pub capacity: i32,
 }
 
 #[derive(Debug)]
 pub struct Home {
-    pub kids: u8,
-    pub weight: u8,
+    pub kids: i32,
+    pub weight: i32,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Output {
-    pub kids: u8,
+    pub kids: i32,
 }
 
 /// A simple Spin HTTP component.
@@ -49,6 +49,7 @@ async fn handle_server(req: Request) -> anyhow::Result<Response> {
                 weight: input.weight[i],
             };
         })
+        .filter(|h| h.kids > 0)
         .collect::<Vec<_>>();
 
     homes.sort_by(|a, b| {
