@@ -2,11 +2,11 @@
 # Please note, that we will a different set of numbers when validating your submission
 POST http://localhost:3000/
 {
-    "kids": [5, 1, 4, 3],
-    "weight": [12, 20, 23, 10],
-    "capacity": 50
+    "place": "North Pole",
+    "characters": ["Santa Claus", "The Grinch", "a pingvin"],
+    "objects": ["A spoon", "Two presents", "Palm tree"]
 }
 
 HTTP 200
 [Asserts]
-jsonpath "$.kids" == 12
+jsonpath "$.story" != null
